@@ -67,3 +67,7 @@ alias gpom='git push origin master'
 
 ### restart: a quick refresh for your shell instance.
 alias restart="source ~/.bashrc"
+
+### write download <website url> to download any and every item linked from that page, including all sub-webpages and directories.
+### ex:download http://www.iarcs.org.in/inoi/online-study-material/
+alias download="wget --random-wait -r -p --no-parent -e robots=off -U mozilla"
