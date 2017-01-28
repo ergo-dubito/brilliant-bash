@@ -16,8 +16,9 @@
 
 ### weather: pass your city or zip code, and it returns the weather!
 ### USAGE - weather cleveland
-###              OR
+###         OR
 ###         weather 44106
+### WARNING - city and zip code args may yield inaccurate/different results.
 weather() { curl wttr.in/"$1"; }
 
 ### myip: prints out your IP address. Handy to check if your VPN is on!
@@ -27,23 +28,17 @@ alias myip="curl icanhazip.com"
 alias plz="fc -l -1 | cut -d' ' -f2- | xargs sudo"
 
 ### ls but better: add some color to your life.
-alias ls='ls --color=auto'
-alias lsm='ls -lAhG --color=auto'incognito() {
-  case $1 in
-    start)
-    set +o history;;
-    stop)
-    set -o history;;
-    *)
-    echo -e "USAGE:
-    incognito start - disable command history.
-    incognito stop - enable command history."};;
-  esac
-}
+alias ls="ls --color=auto"
+
+### a more verbose, colorful ls: see almost everything!
+alias lsm="ls -lAhG --color=auto"
+
+### up: cd .. when you're too lazy to use the spacebar
+alias up="cd .."
 
 ### cls: a better clear with listed directories.
 ### DEPENDENCY - lsm (see above)
-alias cls='clear;lsm'
+alias cls="clear;lsm"
 
 ### update: update all of your packages!
 alias update="sudo pacman -Syyu"
@@ -63,7 +58,7 @@ incognito() {
 }
 
 ### gpom: simplistic git push origin master alias.
-alias gpom='git push origin master'
+alias gpom="git push origin master"
 
 ### restart: a quick refresh for your shell instance.
 alias restart="source ~/.bashrc"
