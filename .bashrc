@@ -70,4 +70,5 @@ alias download="wget --random-wait -r -p --no-parent -e robots=off -U mozilla"
 ### start a servre in the current directory for quick file sharing across a network
 ### also display the ip address of the server
 ### to access the server on another pc, go to ip:port (generally 8000)
-ifconfig | grep inet\ addr && python3 -m http.server
+alias server="ifconfig | grep inet\ addr && python3 -m http.server"
+
