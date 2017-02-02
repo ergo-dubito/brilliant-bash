@@ -37,11 +37,11 @@ alias myip="curl icanhazip.com"
 alias plz="fc -l -1 | cut -d' ' -f2- | xargs sudo"
 
 ### ls but better: add some color to your life.
-if ["$(uname -s)" == "Darwin"]; then # OS X sucks.
+if [ "$(uname -s)" == "Darwin" ]; then # OS X sucks.
   alias ls="ls -G"
 else
   alias ls="ls --color=auto"
-
+fi
 
 ### a more verbose, colorful ls: see almost everything!
 ###
