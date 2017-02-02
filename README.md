@@ -7,7 +7,3 @@ Special thanks to: @[snood1205](https://github.com/snood1205), @[iostat](https:/
 ### Contact
 
 Twitter: @[real_roytenberg](https://twitter.com/real_roytenberg)
-
-### TODO
-
-* Add checks to assign the appropriate package manager for update.
