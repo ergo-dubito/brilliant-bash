@@ -45,8 +45,6 @@ alias plz="fc -l -1 | cut -d' ' -f2- | xargs sudo"
 ### ls but better: add some color to your life.
 if [ "$(uname -s)" == "Darwin" ]; then # OS X sucks.
   alias ls="ls -G"
-  ### render the given manpage in Preview.app
-  pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
 else
   alias ls="ls --color=auto"
 fi
@@ -55,6 +53,11 @@ fi
 ###
 ### DEPENDENCY - ls colorization (see above)
 alias lsm="ls -hAlFG"
+
+### render the given manpage in Preview.app
+if [ "$(uname -s)" == "Darwin" ]; then
+  pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
+fi
 
 ### up: cd .. when you're too lazy to use the spacebar
 alias up="cd .."
