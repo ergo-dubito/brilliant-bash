@@ -14,6 +14,12 @@
 # All you can eat. Take whatever you want/need.
 ###############################################################################
 
+### Don't enable any fancy or potentially breaking features
+### if the shell session is non-interactive
+if [[ $- != *i* ]] ; then
+        return
+fi
+
 ### sudo hack: so you can use custom aliases as sudo
 ###
 ### NOTE - bash will normally stop recognizing aliases after it sees
@@ -39,6 +45,8 @@ alias plz="fc -l -1 | cut -d' ' -f2- | xargs sudo"
 ### ls but better: add some color to your life.
 if [ "$(uname -s)" == "Darwin" ]; then # OS X sucks.
   alias ls="ls -G"
+  ### render the given manpage in Preview.app
+  pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
 else
   alias ls="ls --color=auto"
 fi
@@ -46,10 +54,14 @@ fi
 ### a more verbose, colorful ls: see almost everything!
 ###
 ### DEPENDENCY - ls colorization (see above)
-alias lsm="ls -lAhG"
+alias lsm="ls -hAlFG"
 
 ### up: cd .. when you're too lazy to use the spacebar
 alias up="cd .."
+
+### sets the option to 'autocd' into a directory.
+### Instead of `XXXX is a directory`, bash will cd into it.
+shopt -s autocd
 
 ### cls: a better clear with listed directories.
 ###
@@ -76,6 +88,8 @@ alias ports="netstat -tulpn"
 
 ### space: gets space left on disk
 alias space="df -h"
+### used: recursively gets how much space is used in the current (or given) directory
+alias used="du -ch -d 1"
 
 ### incognito: no saving your command history!
 incognito() {
