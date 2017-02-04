@@ -20,6 +20,10 @@ if [[ $- != *i* ]] ; then
         return
 fi
 
+### sets the option to 'autocd' into a directory.
+### Instead of `XXXX is a directory`, bash will cd into it.
+shopt -s autocd
+
 ### sudo hack: so you can use custom aliases as sudo
 ###
 ### NOTE - bash will normally stop recognizing aliases after it sees
@@ -52,7 +56,7 @@ fi
 ### a more verbose, colorful ls: see almost everything!
 ###
 ### DEPENDENCY - ls colorization (see above)
-alias lsm="ls -hAlFG"
+alias lsm="ls -hlAFG"
 
 ### render the given manpage in Preview.app
 if [ "$(uname -s)" == "Darwin" ]; then
@@ -61,10 +65,6 @@ fi
 
 ### up: cd .. when you're too lazy to use the spacebar
 alias up="cd .."
-
-### sets the option to 'autocd' into a directory.
-### Instead of `XXXX is a directory`, bash will cd into it.
-shopt -s autocd
 
 ### cls: a better clear with listed directories.
 ###
@@ -91,6 +91,7 @@ alias ports="netstat -tulpn"
 
 ### space: gets space left on disk
 alias space="df -h"
+
 ### used: recursively gets how much space is used in the current (or given) directory
 alias used="du -ch -d 1"
 
@@ -108,7 +109,6 @@ incognito() {
 }
 
 ### gpom: simplistic git push origin master alias.
-
 alias gpom="git push origin master"
 
 ### restart: a quick refresh for your shell instance.
