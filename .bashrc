@@ -125,4 +125,8 @@ alias push-please="git push --force-with-lease"
 
 ### python/pip: it's 2017. Let's act like we live in it.
 # alias python="python3"
-# alias pip="sudo pip3"
+
+if [ ! -z "$(which virtualenv)" ]; then
+	alias pyenv="virtualenv -p python3 env"
+	alias pyact="source ./env/bin/activate"
+fi
