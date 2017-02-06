@@ -34,6 +34,10 @@ alias sudo="sudo "
 ### WARNING - city and zip code args may yield inaccurate/different results.
 weather() { curl wttr.in/"$1"; }
 
+### nh - run a task in the background with nohup - handy when a program needs
+### environment variables from the shell
+nh() { nohup $1 >/dev/null 2>/dev/null & }
+
 ### myip: prints out your IP address. Handy to check if your VPN is on!
 alias myip="curl icanhazip.com"
 
