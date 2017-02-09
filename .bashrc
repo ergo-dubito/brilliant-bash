@@ -20,6 +20,7 @@ if [[ $- != *i* ]] ; then
         return
 fi
 
+# source the .bash_aliases file. This is a set of 3 lines that users of other shells (zsh, ksh, ...) can add to quickly use the aliases
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
