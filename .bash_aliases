@@ -119,6 +119,7 @@ alias add="git add"
 alias commit="git commit"
 alias push="git push"
 alias status="git status"
+alias stash="git stash"
 
 ### push-please: force-pushing, but more polite!
 alias push-please="git push --force-with-lease"
