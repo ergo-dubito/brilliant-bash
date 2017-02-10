@@ -19,3 +19,5 @@
 if [[ $- != *i* ]] ; then
         return
 fi
+
+source ~/.bash_aliases
