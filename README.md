@@ -9,7 +9,7 @@ Special thanks to everyone who contributes to this repository. Using the command
 Clone this repo inside of where you store your dotfiles with:
 
 ```
-git clone https://github.com/USERNAME/REPOSITORY.git
+git clone https://github.com/roytenberg/brilliant-bash
 ```
 
 Then, comment out the aliases you don't want with your text editor of choice.
