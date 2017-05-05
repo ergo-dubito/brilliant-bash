@@ -34,7 +34,7 @@ alias sudo="sudo "
 ### WARNING - city and zip code args may yield inaccurate/different results.
 weather() { curl wttr.in/"$1"; }
 
-### nh - run a task in the background with nohup - handy when a program needs
+### nh: run a task in the background with nohup - handy when a program needs
 ### environment variables from the shell
 nh() { nohup $1 >/dev/null 2>/dev/null & }
 
@@ -124,18 +124,7 @@ alias stash="git stash"
 ### push-please: force-pushing, but more polite!
 alias push-please="git push --force-with-lease"
 
-### python/pip: it's 2017. Let's act like we live in it.
-# alias python="python3"
-#if [ ! -z "$(which virtualenv)" ]; then
-#  alias pyenv="virtualenv -p python3 env"
-#	 alias pyact="source ./env/bin/activate"
-#fi
-
-### write download <website url> to download any and every item linked from that page, including all sub-webpages and directories.
-### ex:download http://www.iarcs.org.in/inoi/online-study-material/
+### download: download any and every item linked from that page.
+###
+### USAGE - download https://data.gov
 alias download="wget --random-wait -r -p --no-parent -e robots=off -U mozilla"
-
-### start a servre in the current directory for quick file sharing across a network
-### also display the ip address of the server
-### to access the server on another pc, go to ip:port (generally 8000)
-alias server="ifconfig | grep inet\ addr && python3 -m http.server"
