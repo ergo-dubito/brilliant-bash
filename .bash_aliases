@@ -38,6 +38,11 @@ weather() { curl wttr.in/"$1"; }
 ### environment variables from the shell
 nh() { nohup $1 >/dev/null 2>/dev/null & }
 
+### grepex: search recursively for a pattern in the current directory, but
+### exclude files and folders which match a second pattern
+### example: grepex word node_modules
+grepex() { grep -rH $1 `ls -a | grep -ve "^\($2\)\|\(\.\)\{1,2\}$"`; }
+
 ### myip: prints out your IP address. Handy to check if your VPN is on!
 alias myip="curl icanhazip.com"
 
