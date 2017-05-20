@@ -12,11 +12,9 @@
 # A handful of bash aliases to strengthen the bond between you and your machine.
 #
 # All you can eat. Take whatever you want/need.
+#
+# Made by: Ben Roytenberg (roytenberg@users.noreply.github.com)
 ###############################################################################
-
-### sets the option to 'autocd' into a directory.
-### Instead of `XXXX is a directory`, bash will cd into it.
-shopt -s autocd
 
 ### sudo hack: so you can use custom aliases as sudo
 ###
@@ -24,6 +22,12 @@ shopt -s autocd
 ### the space after the command sudo, but if it sees an alias that
 ### ends in a space, it will attempt to detect another alias after.
 alias sudo="sudo "
+
+### sets the option to 'autocd' into a directory.
+### Instead of `XXXX is a directory`, bash will cd into it.
+if [ "$(uname -s)" != "Darwin" ]; then # macOS doesn't have shopt...
+  shopt -s autocd
+fi
 
 ### weather: pass your city or zip code, and it returns the weather!
 ###
@@ -66,6 +70,9 @@ if [ "$(uname -s)" == "Darwin" ]; then
   pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
 fi
 
+## reveal: lost in the terminal? Just reveal your current folder programmaticaly.
+alias reveal="open ."
+
 ### up: cd .. when you're too lazy to use the spacebar
 alias up="cd .."
 
@@ -75,7 +82,9 @@ alias up="cd .."
 alias cls="clear;lsm"
 
 ### update: update all of your packages!
-if [ ! -z "$(which pacman)" ]; then
+if [ ! -z "$(which brew)" ]; then
+  alias update="brew update && brew upgrade"
+elif [ ! -z "$(which pacman)" ]; then
   alias update="sudo pacman -Syyu"
 elif [ ! -z "$(which apt)" ]; then
   alias update="sudo apt update && sudo apt upgrade && sudo apt full-upgrade"
@@ -85,8 +94,6 @@ elif [ ! -z "$(which dnf)" ]; then
   alias update="sudo dnf upgrade"
 elif [ ! -z "$(which yum)" ]; then
   alias update="su -c 'yum update'"
-elif [ ! -z "$(which brew)" ]; then
-  alias update="brew update && brew upgrade"
 elif [ ! -z "$(which zypper)" ]; then
   alias update="sudo zypper update"
 fi
