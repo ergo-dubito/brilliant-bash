@@ -71,7 +71,9 @@ if [ "$(uname -s)" == "Darwin" ]; then
 fi
 
 ## reveal: lost in the terminal? Just reveal your current folder programmaticaly.
-alias reveal="open ."
+if [ "$(uname -s)" == "Darwin" ]; then
+  alias reveal="open ."
+fi
 
 ### up: cd .. when you're too lazy to use the spacebar
 alias up="cd .."
